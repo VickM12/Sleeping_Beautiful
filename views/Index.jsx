@@ -11,7 +11,7 @@ class Index extends React.Component{
           <div class ="header">
             <h1>Welcome, Beautiful</h1>
             <div id="navbar">
-              <a href="/sleepware">Sleepware</a>
+              <a href="/sleepwear">Sleepwear</a>
               <a href="/skincare">Skin Care</a>
             </div>
           </div>

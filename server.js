@@ -26,16 +26,15 @@ mongoose.connection.once('open', () => {
 })
 
 //Controllers
-app.get('/', (req, res) => {
-  res.render('Index.jsx')
-});
-
-const sleepwareController = require('./controllers/sleepware.js');
-app.use('/sleepware', sleepwareController);
+const sleepwearController = require('./controllers/sleepwear.js');
+app.use('/sleepwear', sleepwearController);
 
 const skincareController = require('./controllers/skincare.js');
 app.use('/skincare', skincareController);
 
+app.get('/', (req, res) => {
+  res.render('Index.jsx')
+});
 //Listener
 app.listen(PORT, () => {
   console.log(`Listening on Port ${PORT}`)

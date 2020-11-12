@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const SkinCare = require('../models/skinCare.js');
+const SkincareProduct = require('../models/skincare.js');
 
 //Export Router
 module.exports = router;
