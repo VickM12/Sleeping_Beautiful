@@ -1,6 +1,6 @@
 require ('dotenv').config()
 
-//dependencies//
+//Dependencies//
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -23,7 +23,7 @@ mongoose.connect(mongoURI, {useNewUrlParser: true,
 useUnifiedTopology: true});
 mongoose.connection.once('open', () => {
   console.log("Connected to MongoDB");
-})
+});
 
 //Controllers
 const sleepwearController = require('./controllers/sleepwear.js');
@@ -35,6 +35,7 @@ app.use('/skincare', skincareController);
 app.get('/', (req, res) => {
   res.render('Index.jsx')
 });
+
 //Listener
 app.listen(PORT, () => {
   console.log(`Listening on Port ${PORT}`)
