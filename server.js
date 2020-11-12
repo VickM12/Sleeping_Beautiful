@@ -14,12 +14,12 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
-app.use(methodeOverride('_method'));
+app.use(methodOverride('_method'));
 
 //Mongoose Connection
-const mongoURL = process.env.MONGO_URL
+const mongoURI = process.env.MONGO_URI
 
-mongoose.connect(mongoURL, {useNewUrlParser: true,
+mongoose.connect(mongoURI, {useNewUrlParser: true,
 useUnifiedTopology: true});
 mongoose.connection.once('open', () => {
   console.log("Connected to MongoDB");
@@ -30,11 +30,11 @@ app.get('/', (req, res) => {
   res.render('Index.jsx')
 });
 
-const sleepWare = require('./controllers/sleepWare.js');
-app.use('/sleepware', sleepWare);
+const sleepwareController = require('./controllers/sleepware.js');
+app.use('/sleepware', sleepwareController);
 
-const skinCare = require('./controllers/skinCare.js');
-app.use('/skincare', skinCare);
+const skincareController = require('./controllers/skincare.js');
+app.use('/skincare', skincareController);
 
 //Listener
 app.listen(PORT, () => {
